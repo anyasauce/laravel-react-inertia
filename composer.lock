@@ -4,8 +4,95 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5c9e0973e98bd8c3672e1a448dfceddc",
+    "content-hash": "bb20b217a075b319f38d9de48228d2c6",
     "packages": [
+        {
+            "name": "anyasauce/laravel-react-inertia",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/anyasauce/laravel-react-inertia.git",
+                "reference": "c80ff90132b3e0e00ab9d69784dd9e040695c658"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/anyasauce/laravel-react-inertia/zipball/c80ff90132b3e0e00ab9d69784dd9e040695c658",
+                "reference": "c80ff90132b3e0e00ab9d69784dd9e040695c658",
+                "shasum": ""
+            },
+            "require": {
+                "inertiajs/inertia-laravel": "^2.0",
+                "laravel/framework": "^12.0",
+                "laravel/tinker": "^2.10.1",
+                "php": "^8.2"
+            },
+            "require-dev": {
+                "fakerphp/faker": "^1.23",
+                "laravel/pail": "^1.2.2",
+                "laravel/pint": "^1.13",
+                "laravel/sail": "^1.41",
+                "mockery/mockery": "^1.6",
+                "nunomaduro/collision": "^8.6",
+                "phpunit/phpunit": "^11.5.3"
+            },
+            "default-branch": true,
+            "type": "project",
+            "extra": {
+                "laravel": {
+                    "dont-discover": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "App\\": "app/",
+                    "Database\\Factories\\": "database/factories/",
+                    "Database\\Seeders\\": "database/seeders/"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "Tests\\": "tests/"
+                }
+            },
+            "scripts": {
+                "post-autoload-dump": [
+                    "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+                    "@php artisan package:discover --ansi"
+                ],
+                "post-update-cmd": [
+                    "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+                ],
+                "post-root-package-install": [
+                    "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+                ],
+                "post-create-project-cmd": [
+                    "@php artisan key:generate --ansi",
+                    "@php -r \"file_exists('database/database.sqlite') || touch('database/database.sqlite');\"",
+                    "@php artisan migrate --graceful --ansi"
+                ],
+                "dev": [
+                    "Composer\\Config::disableProcessTimeout",
+                    "npx concurrently -c \"#93c5fd,#c4b5fd,#fdba74\" \"php artisan serve\" \"php artisan queue:listen --tries=1\" \"npm run dev\" --names='server,queue,vite'"
+                ],
+                "test": [
+                    "@php artisan config:clear --ansi",
+                    "@php artisan test"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "The skeleton application for the Laravel framework.",
+            "keywords": [
+                "framework",
+                "laravel"
+            ],
+            "support": {
+                "source": "https://github.com/anyasauce/laravel-react-inertia/tree/main",
+                "issues": "https://github.com/anyasauce/laravel-react-inertia/issues"
+            },
+            "time": "2025-05-09T07:20:29+00:00"
+        },
         {
             "name": "brick/math",
             "version": "0.12.3",
@@ -8142,8 +8229,10 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
-    "stability-flags": {},
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "anyasauce/laravel-react-inertia": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
