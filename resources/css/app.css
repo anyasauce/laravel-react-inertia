@@ -1,0 +1,10 @@
+@import 'tailwindcss';
+@import '@fontsource/poppins/600.css';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.jsx';
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
